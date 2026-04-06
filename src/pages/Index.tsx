@@ -434,10 +434,49 @@ export default function Index() {
             ))}
           </div>
 
-          <div className="rounded-xl p-10 text-center" style={{ background: "var(--dark-card)", border: "1px dashed rgba(0,212,255,0.2)" }}>
-            <Icon name="Images" size={40} style={{ color: "rgba(0,212,255,0.3)", margin: "0 auto 12px" }} />
-            <p className="font-semibold mb-1" style={{ color: "rgba(232,237,245,0.4)", fontFamily: "'Exo 2', sans-serif" }}>ФОТОГАЛЕРЕЯ С МЕРОПРИЯТИЙ</p>
-            <p className="text-sm" style={{ color: "rgba(232,237,245,0.25)" }}>Добавьте фотографии из папки — галерея будет здесь</p>
+          <div>
+            <div className="text-center mb-8">
+              <div className="text-xs font-bold tracking-widest mb-2" style={{ color: "var(--cyan)", fontFamily: "'Exo 2', sans-serif" }}>ФОТОГАЛЕРЕЯ</div>
+              <h3 className="font-black" style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "#fff" }}>
+                Botlegger на мероприятиях
+              </h3>
+            </div>
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+              {[
+                {
+                  url: "https://cdn.poehali.dev/files/9ea4389f-ebb1-4a56-9a4e-2235763e18e8.jpg",
+                  caption: "Porsche Taycan — презентация дилера",
+                },
+                {
+                  url: "https://cdn.poehali.dev/files/f5b74cf3-6e9f-4f38-b8a9-aa8f684e6325.jpg",
+                  caption: "Промо-зона с брендингом Хаски",
+                },
+                {
+                  url: "https://cdn.poehali.dev/files/75ac1d25-5444-4959-a399-69894d773cb7.jpg",
+                  caption: "Porsche Driver's Selection — корпоративный ивент",
+                },
+              ].map((photo, i) => (
+                <div
+                  key={i}
+                  className="break-inside-avoid mb-4 rounded-xl overflow-hidden relative group cursor-pointer"
+                  style={{ border: "1px solid rgba(0,212,255,0.1)" }}
+                >
+                  <img
+                    src={photo.url}
+                    alt={photo.caption}
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: "linear-gradient(transparent 50%, rgba(7,11,18,0.85) 100%)" }}
+                  >
+                    <p className="p-4 text-sm font-medium" style={{ color: "rgba(232,237,245,0.9)", fontFamily: "'IBM Plex Sans', sans-serif" }}>
+                      {photo.caption}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
